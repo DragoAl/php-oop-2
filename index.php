@@ -61,7 +61,7 @@
         }
 
         public function printFullPerson() {
-            return $this -> name . " ". $this -> surname . " : ". $this -> dateOfBirth;
+            return $this -> getName() . " ". $this -> getSurname() . " : ". $this -> getDate();
         }
 
         public function __toString() {
@@ -98,7 +98,7 @@
         }
 
         public function printFullEmployer() {
-            return parent::printFullPerson()."Stipendio ".$this -> salary. " (" ."Data Assunzione :". $this -> assumptionDate.")";
+            return parent::printFullPerson()."Stipendio ".$this -> getSalary(). " (" ."Data Assunzione :". $this -> getAssumptionDate().")";
         }
 
         public function __toString() {
@@ -114,9 +114,9 @@
     $p2 -> setDate("23/07/1994");
     $p3 -> setDate("05/01/1992");
 
-    $e1 = new Employee("Lucia", "Rossi", 1500);
-    $e2 = new Employee("Marco", "Bianchi", 1200);
-    $e3 = new Employee("Maria", "Verdi", 1350);
+    $e1 = new Employee($p1 -> getName(), $p1 -> getSurname(), 1500);
+    $e2 = new Employee($p2 -> getName(), $p2 -> getSurname(), 1200);
+    $e3 = new Employee($p3 -> getName(), $p3 -> getSurname(), 1350);
 
 
     $e1 -> setAssumptionDate("01/05/2015");
@@ -124,10 +124,14 @@
     $e3 -> setAssumptionDate("01/10/2016");
 
 
+
+
     echo $p1. "<br>";
     echo $p2. "<br>";
     echo $p3. "<br>";
-
+    
+    echo "<br>-----------------------------<br><br>";
+    
     echo $e1. "<br>";
     echo $e2. "<br>";
     echo $e3. "<br>";
